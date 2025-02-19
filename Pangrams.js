@@ -23,7 +23,6 @@ function readLine() {
 }
 
 function pangrams(s) {
-    // Write your code here
     s=s.toLowerCase().trim();
     const letters = "abcdefghijklmnopqrstuvwxyz";
     if(letters.split("").every(char => s.includes(char))){
