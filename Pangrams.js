@@ -18,10 +18,6 @@ process.stdin.on('end', function() {
     main();
 });
 
-function readLine() {
-    return inputString[currentLine++];
-}
-
 function pangrams(s) {
     s=s.toLowerCase().trim();
     const letters = "abcdefghijklmnopqrstuvwxyz";
@@ -32,6 +28,11 @@ function pangrams(s) {
         return 'not pangram'
     }
 }
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
 
 function main() {
     const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
