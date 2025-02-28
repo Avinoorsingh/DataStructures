@@ -3462,38 +3462,11 @@ var AdblockPlus = new function() {
      }
  };
 
-/*
-AdblockPlus.detect("https://cdnads.geeksforgeeks.org/res/px.gif", function(abp){
-    window.googletag = window.googletag || {cmd: []};
-    window.abp=abp;
-    var elms = [...document.querySelectorAll('div[id^=_GFG_ABP_]')];
-    const units=elms.map(elem=>elem.id)
-    if(abp) {
-        for(let curr_unit of units) {
-            const iframe = document.createElement('iframe');
-            iframe.setAttribute('src',"https://aa.geeksforgeeks.org/iframe.html?code="+curr_unit.substr(1))
-            const elem = document.getElementById(curr_unit)
-            const div = document.createElement('div');
-            div.setAttribute('id',curr_unit.substr(1))
-            let sizes = curr_unit.split("_");
-            sizes = sizes.filter(val => val.includes('x'));
-            let [width, height] = sizes[0].split("x");
-            iframe.style.width = `${+width+20}px`
-            iframe.style.height = `${+height+20}px`
-            if(elem) {
-                elem.appendChild(iframe);
-            }
-        }
-        var gfgAdDivs = [...document.querySelectorAll('div[id^=GFG_AD_]')];
-        gfgAdDivs.forEach(gfgDiv => document.getElementById(gfgDiv.id).removeAttribute("style"));
-        jQuery('#secondary .widget_text:last-child').css({"position": "unset"});
-    }
-});*/
+
     AdblockPlus.detect("https://cdnads.geeksforgeeks.org/res/px.gif", function(abp){
     window.googletag = window.googletag || {cmd: []};
     window.abp=abp;
     var elms = [...document.querySelectorAll('div[id^=_GFG_ABP_]')];
-    //const units=elms.map(elem=>elem.id)
     const units = elms
       .filter(elem => !(window.innerWidth < 1500 && elem.id === "_GFG_ABP_Incontent_728x90"))
       .map(elem => elem.id);
@@ -3703,9 +3676,7 @@ AdblockPlus.detect("https://cdnads.geeksforgeeks.org/res/px.gif", function(abp){
 
 <script async src="https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/event-promotion.min.js?ver=4.5"></script>
   
-<!-- gfg tabs compatablity bundled js -->
 
-<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
